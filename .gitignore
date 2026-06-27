@@ -1,0 +1,6 @@
+# vertual env
+.venv
+
+
+.env
+.env.prod
