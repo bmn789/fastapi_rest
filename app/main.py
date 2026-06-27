@@ -23,26 +23,3 @@ async def http_exception_handler(request: Request, exc):
 
 
 app.include_router(user_routes, prefix="/api")
-
-
-@app.get("/")
-async def users(db:DbSession):
-    return await crud.get_users(db)
-
-
-@app.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserResponse)
-async def create_user(db:DbSession, user:schemas.UserBase):
-    # user = db.query(models.User).first()
-    new_user = models.User(**user.model_dump())
-    db.add(new_user)
-    db.commit()
-    u1 = db.refresh(new_user)
-    print(u1)
-    
-    return new_user
-
-
-@app.delete("/")
-def delete_user():
-   raise HTTPException(status_code=400, detail="User not found")
-
