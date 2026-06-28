@@ -5,6 +5,12 @@ class TodoBase(BaseModel):
     title: str
     despcription: Optional[str] = None
 
+class TodoResponse(TodoBase):
+    id : int
+
+    class Config:
+        from_attributes = True
+
 
 class UserBase(BaseModel):
     name:str
