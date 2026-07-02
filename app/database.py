@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import os
 
 
-load_dotenv(dotenv_path=".env.prod")
+load_dotenv()
 DB_URL:str =  os.getenv("DB_URL", "")
 print("DB_URL", DB_URL)
 engine = create_engine(DB_URL)
