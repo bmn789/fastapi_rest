@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-rest"
+version = "0.1.0"
+description = "FastAPI REST API"
+requires-python = ">=3.12"
+
+[tool.vercel]
+entrypoint = "app.main:app"
